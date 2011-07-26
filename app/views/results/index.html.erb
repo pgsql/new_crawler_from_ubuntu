@@ -1,0 +1,49 @@
+<h1>Listing results</h1>
+
+<table>
+  <tr>
+    <th>Configuration</th>
+    <th>Job Name</th>
+    <th>Working title</th>
+    <th>Location</th>
+    <th>Organization name</th>
+    <th>Brieff description</th>
+    <th>Detailed description</th>
+    <th>Department description</th>
+    <th>Job requirments</th>
+    <th>Additional details</th>
+    <th>How to apply</th>
+    <th>Link</th>
+    <!--<th>Html blob</th>-->
+    <th>Expired</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @results.each do |result| %>
+  <tr>
+    <td><%= result.configuration.title %></td>
+    <td><%= result.job_name %></td>
+    <td><%= result.working_title %></td>
+    <td><%= result.location %></td>
+    <td><%= result.organization_name %></td>
+    <td><%= result.brieff_description %></td>
+    <td><%= result.detailed_description %></td>
+    <td><%= result.department_description %></td>
+    <td><%= result.job_requirments %></td>
+    <td><%= result.additional_details %></td>
+    <td><%= result.how_to_apply %></td>
+    <td><%= result.link %></td>
+    <!--<td>Html blob<%#= result.html_blob %></td>-->
+    <td><%= result.expired %></td>
+    <td><%= link_to 'Show', result %></td>
+    <td><%= link_to 'Edit', edit_result_path(result) %></td>
+    <td><%= link_to 'Destroy', result, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Result', new_result_path %>
