@@ -8,7 +8,7 @@ class BTNGo < ATSWorker
     update_last_run(@job[:id])
 
     @configuration.results.update_all("expired = true")
-    config.time_of_last_run = @time_of_last_run
+    
     #search form
     form = page.forms[0]
 

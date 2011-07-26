@@ -90,7 +90,7 @@ class ATSWorker < CSVMaker
     config.no_of_times_run = config.no_of_times_run.to_i + 1
     config.end_time = Time.now
     config.last_run = config.end_time - config.time_of_last_run
-    if config.first_time.blank?
+    if config.first_time == 0
       config.first_time =  1
     else
       config.first_time =  2
