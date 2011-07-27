@@ -111,7 +111,7 @@ class Worker
   #@data should be already a CSV string
   def save_data
     path = @job[:save_path]
-    log "--------------\nsaving to: "+File.expand_path(path)+"\n\n"
+    log "--------------\nSaving csv  to: "+File.expand_path(path)+"\n\n"
     dirs = File.dirname(path)
     puts "*************** path.inspect ****************"
     puts path.inspect
