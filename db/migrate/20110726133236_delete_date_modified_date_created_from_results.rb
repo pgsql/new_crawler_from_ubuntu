@@ -5,7 +5,7 @@ class DeleteDateModifiedDateCreatedFromResults < ActiveRecord::Migration
   end
 
   def self.down
-     add_column :results, :datetime
-     add_column :results, :datetime
+     add_column :results, :date_modified,:datetime
+     add_column :results, :date_created , :datetime
   end
 end

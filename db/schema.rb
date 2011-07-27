@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110726175302) do
+ActiveRecord::Schema.define(:version => 20110727173156) do
 
   create_table "configurations", :force => true do |t|
     t.text     "company_name"
@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(:version => 20110726175302) do
     t.text     "duns"
     t.text     "map_frequency"
     t.text     "map_day_of_week"
-    t.date     "date_created"
-    t.date     "date_modified"
     t.time     "last_run"
     t.time     "time_of_last_run"
     t.integer  "no_of_times_run"
