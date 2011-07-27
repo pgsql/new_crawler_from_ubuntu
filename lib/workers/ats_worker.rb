@@ -10,22 +10,22 @@ class ATSWorker < CSVMaker
     path = dirs+"/"+file_name+".html"
     data.gsub! /<img[^<]*>/, ""
     data = "<html>\n<body>\n<a href=\"#{link}\">#{file_name}</a>\n"+data+"\n</body>\n</html>"
-    log "saving page to DB: "+File.expand_path(path)+"\n--------------\n"
+    log "saving the result to DB: "+File.expand_path(path)+"\n--------------\n"
     File.makedirs(dirs)
     f = File.new path, "w"
     cnt = f.write data
     f.close
   end
 
-  def save_data_page(file_name, data, link,result)
+  def save_data_page(file_name, data, link,result,configuration)
     path = @job[:save_path]
     dirs = File.dirname(path)
     path = dirs+"/"+file_name+".html"
     data.gsub! /<img[^<]*>/, ""
     data = "<html>\n<body>\n<a href=\"#{link}\">#{file_name}</a>\n"+data+"\n</body>\n</html>"
     log "saving page to DB: "+File.expand_path(path)+"\n--------------\n"
-    result.update_attributes(:html_blob => data) if @configuration.save_html_blob
-    if @configuration.save_html_file
+    result.update_attributes(:html_blob => data) if configuration.save_html_blob
+    if configuration.save_html_file
       File.makedirs(dirs)
       f = File.new path, "w"
       cnt = f.write data
@@ -90,6 +90,8 @@ class ATSWorker < CSVMaker
     config.no_of_times_run = config.no_of_times_run.to_i + 1
     config.end_time = Time.now
     config.last_run = config.end_time - config.time_of_last_run
+
+    puts config.first_time.inspect
     if config.first_time == 0
       config.first_time =  1
     else

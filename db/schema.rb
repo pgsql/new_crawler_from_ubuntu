@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110726133236) do
+ActiveRecord::Schema.define(:version => 20110726175302) do
 
   create_table "configurations", :force => true do |t|
     t.text     "company_name"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20110726133236) do
     t.time     "last_run"
     t.time     "time_of_last_run"
     t.integer  "no_of_times_run"
-    t.integer  "first_time"
+    t.integer  "first_time",             :default => 0
     t.boolean  "has_next"
     t.text     "job_listing_option"
     t.boolean  "active"
@@ -86,13 +86,7 @@ ActiveRecord::Schema.define(:version => 20110726133236) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "detailed_description"
-    t.text     "department_description"
-  end
-
-  create_table "samples", :force => true do |t|
-    t.string   "title",      :default => "0"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "department_description"
   end
 
 end

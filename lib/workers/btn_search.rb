@@ -29,7 +29,19 @@ class BTNSearch < ATSWorker
       joblinks.each do |joblink|
         decorate_form link_form, joblink
         datapage = link_form.submit
-
+          @fields = [
+         "Job Name",
+         "Working Title",
+         "Location",
+         "Organization Name",
+         "Department Description",
+         "Brief Description",
+         "Detailed Description",
+         "Job Requirements",
+         "Additional Details",
+         "How To Apply",
+         "Link"
+     ]
         csv_row = CSVRow.new(@fields)
         job_name = joblink.text
         working_title = html2csv datapage.parser.xpath('//*[@id="JobTitle"]').inner_html
@@ -64,9 +76,9 @@ class BTNSearch < ATSWorker
         parsed_count +=1
         log "parsed #{job_name}"
         plain_data_to_be_saved = datapage.parser.xpath '//*[@id="Description"]'
-        #save_page job_name, plain_data_to_be_saved.to_html, link.to_s
-        save_data_page job_name, plain_data_to_be_saved.to_html, link.to_s, @result
-        #break
+        save_page job_name, plain_data_to_be_saved.to_html, link.to_s
+        save_data_page job_name, plain_data_to_be_saved.to_html, link.to_s, @result,@configuration
+       #break
       end
       @data = to_csv
       save_data if @configuration.create_csv

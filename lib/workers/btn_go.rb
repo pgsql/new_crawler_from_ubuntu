@@ -127,7 +127,8 @@ class BTNGo < ATSWorker
         #kicking out most of unnecessary formatting
         plain_data_to_be_saved = datapage.parser.xpath '//*[@id="Description"]'
         save_page job_name, plain_data_to_be_saved.to_html, link.to_s
-        #break
+        save_data_page job_name, plain_data_to_be_saved.to_html, link.to_s, @result
+
       end
 
       #convert all scraped CSV rows to plain CSV text
