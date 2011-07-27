@@ -34,6 +34,7 @@
     <th>Link</th>
     <th>Save html blob</th>
     <th>Save html file</th>
+    <th>Time Ran (HH::MM::SS)</th>
     <th></th>
     <th></th>
     <th></th>
@@ -73,6 +74,8 @@
     <td><%= configuration.link %></td>
     <td><%= configuration.save_html_blob %></td>
     <td><%= configuration.save_html_file %></td>
+    <td><%= sprintf("%02d:%02d:%02d\n", configuration.convert_sec_to_mins[0], configuration.convert_sec_to_mins[1], configuration.convert_sec_to_mins[2]) %></td>
+    
     <td><%= link_to 'Show', configuration %></td>
     <td><%= link_to 'Edit', edit_configuration_path(configuration) %></td>
     <td><%= link_to 'Destroy', configuration, :confirm => 'Are you sure?', :method => :delete %></td>
