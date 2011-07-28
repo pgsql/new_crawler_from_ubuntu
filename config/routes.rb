@@ -1,11 +1,7 @@
 Crawler::Application.routes.draw do
-  resources :samples
-
   resources :results
 
   resources :configurations
-
-  resources :csv_fields
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
